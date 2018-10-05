@@ -4,6 +4,7 @@ namespace App\Models;
 
 class BotModel{
     private static $link;
+    //private static $DATA; => In case, if we wanna conserve all DB data on object creating for further operations. 
 
     function __construct(){
         $this->$link = mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);

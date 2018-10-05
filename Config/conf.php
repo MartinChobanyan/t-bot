@@ -2,6 +2,7 @@
 
 // BOT
     define("TELEGRAM_BOT_TOKEN", "");
+    define("TELEGRAM_REQUEST_BASE", "https://api.telegram.org/bot" . TELEGRAM_BOT_TOKEN . "/");
 
 // DB PARAMS
     define("DB_HOSTNAME", "localhost");
