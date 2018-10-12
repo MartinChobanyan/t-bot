@@ -13,7 +13,7 @@ class BotModel{
     }
 
     public function getChat($token){
-        $query = "SELECT `chat_id` FROM `Users` WHERE  `token` = $token";
+        $query = "SELECT `chat_id` FROM `Users` WHERE  `token` = '$token'";
         $result = mysqli_query($this->$link, $query);
         $row = mysqli_fetch_row($result);
         $chat = $row[0];

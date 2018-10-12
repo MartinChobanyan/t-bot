@@ -14,8 +14,8 @@ class GithubController{
     }
 
     public function notify(){
-        echo $chat_id = getChatID($this->Token);
-        echo $text = DataProcess($this->Data);
+        $chat_id = $this->getChatID($this->Token);
+        $text = $this->DataProcess($this->Data);
 
         return TelegramService::SendMessage($chat_id, $text);
     }
@@ -47,6 +47,8 @@ class GithubController{
     }
 
     private function init(){
+        $_POST["token"] = $_GET["params"][3];
+
         $token = $_POST["token"];
         $data = $_POST["payload"];
 

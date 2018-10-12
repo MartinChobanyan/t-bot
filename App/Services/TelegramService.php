@@ -9,7 +9,7 @@ class TelegramService{
             'chat_id' => $chat_id,
             'text' => $message
         ];
-        $result = TELEGRAM_REQUEST_BASE . http_build_query($parameters);
+        $result = TELEGRAM_REQUEST_BASE . "sendmessage?" . http_build_query($parameters);
         return file_get_contents($result);
     }
 }
