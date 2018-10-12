@@ -5,17 +5,14 @@ namespace App\Controllers;
 use App\Models\BotModel;
 
 class TelegramController{
-    private $chat_id;
+    //private $chat_id;
 
-    function __construct($chat_id){
-        $this->chat_id = $chat_id;
-    }
+//    function __construct($vars){
+//        //$this->chat_id;
+//    }
 
-    public function SendMessage(){
-        
-    }
-
-    public function RunCommand($command){
-
+    public function update($requst)
+    {
+        $request['cleint-id'];
     }
 }
