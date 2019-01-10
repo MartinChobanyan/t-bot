@@ -9,19 +9,21 @@ class GithubController{
     private $Token;
     private $Data;
 
-    public function __construct(){
-        $this->init();
-    }
+//    public function __construct(){
+//        //$this->init();
+//    }
 
     public function notify(){
-        $chat_id = $this->getChatID($this->Token);
+        $this->init();
+
+        $chat_id = $this->getChatId($this->Token);
         $text = $this->DataProcess($this->Data);
 
         return TelegramService::SendMessage($chat_id, $text);
     }
 
-    private function getChatID($token){
-        return (new BotModel)->getChat($token);
+    private function getChatId($token){
+        return (new BotModel)->getChatId($token);
     }
 
     private function DataProcess($data){
@@ -47,10 +49,16 @@ class GithubController{
     }
 
     private function init(){
-        $_POST["token"] = $_GET["params"][3];
+        if(empty($_GET["params"][2])) die("TOKEN MISSING");
+
+        $_POST["token"] = $_GET["params"][2];
 
         $token = $_POST["token"];
-        $data = $_POST["payload"];
+        
+        if(isset($_POST["payload"])){ 
+            $data = $_POST["payload"];
+        }
+        else die("GET THE FUCK OFF!");
 
         $this->Token = $token;
         $this->Data = json_decode($data, true);

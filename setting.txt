@@ -6,8 +6,8 @@ data.json:
 
 Set Webhook Request:
 
-curl -X POST -d @data.json -H "Content-Type: application/json" "https://api.telegram.org/bot*token*/setWebhook"
+curl -X POST -d @data.json -H "Content-Type: application/json" "https://api.telegram.org/bot*Token*/setWebhook"
 
 OR
 
-via https://api.telegram.org/bot*token*/setWebhook?url=...& ...
+via https://api.telegram.org/bot*token*/setWebhook?url=*URL*/Telegram/update

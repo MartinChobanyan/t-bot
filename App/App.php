@@ -3,7 +3,7 @@
 namespace App;
 
 class App{
-    private const baseNamespace = "App\\Controllers\\";
+    private static $baseNamespace = "App\\Controllers\\";
     private $controller;
     private $method;
 
@@ -16,12 +16,12 @@ class App{
     }
 
     private function init(){
-        if(empty($_GET["params"])) die("FORBIDDEN!");
+        if(!isset($_GET["params"]) || count($_GET["params"]) < 2) die("FORBIDDEN!");
         
-        $controllername = $_GET["params"][1] . "Controller";
-        $methodname = $_GET["params"][2];
+        $controllername = $_GET["params"][0] . "Controller";
+        $methodname = $_GET["params"][1];
 
-        if(!class_exists($path = self::baseNamespace . $controllername)) die("UNEXPECTED REQUEST!"); 
+        if(!class_exists($path = App::$baseNamespace . $controllername)) die("UNEXPECTED REQUEST!"); 
         
         $this->controller = new $path;
 
