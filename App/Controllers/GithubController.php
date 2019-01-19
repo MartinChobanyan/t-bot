@@ -31,7 +31,7 @@ class GithubController{
 
         $message = '';
         $message .= "At " . $date . ' ' . $time . "\n--------\n";
-        $message .= $data["pusher"]["name"] . "\n\n";
+        $message .= "[*" . $data["pusher"]["name"] . "*]" . "(" . $data["sender"]["html_url"] . ")" . "\n\n";
     
         if(!empty($data["head_commit"]["added"])) {
             $message .= "\tAdded:\n\t\t\t" . json_encode($data["head_commit"]["added"]) . "\n";
@@ -43,7 +43,7 @@ class GithubController{
             $message .= "\tEdited:\n\t\t\t" . json_encode($data["head_commit"]["modified"]) . "\n";
         }
     
-        $message .= "\nIn " . $data["repository"]["name"];
+        $message .= "\nIn " . "[" . $data["repository"]["name"] . "]" . "(" . $data["url"] .  ")";
 
         return $message;
     }

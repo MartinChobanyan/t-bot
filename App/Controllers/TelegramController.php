@@ -91,7 +91,7 @@ class Command{
         $token = $this->generateToken();
         if((new BotModel)->setUser($this->Chat_id, $token)){
             $txt[1] = "Success!";
-            $txt[2] = "https://bot.saatsazov.com/Github/notify/" . $token;
+            $txt[2] = '`' . "https://bot.saatsazov.com/Github/notify/" . $token . '`';
         }
         else{
             $txt = "Fail! Please Try again later or contact with us.";
